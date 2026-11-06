@@ -1,0 +1,3515 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+
+
+    <meta
+
+        name="viewport"
+
+        content="width=device-width, initial-scale=1.0"
+
+    >
+
+
+
+    <title>Square Rush</title>
+
+
+
+    <link
+
+        rel="stylesheet"
+
+        href="style.css"
+
+    >
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="app">
+
+
+
+    <!-- =====================================================
+
+         BACKGROUND
+
+    ====================================================== -->
+
+
+
+    <div class="background-glow glow-one"></div>
+
+    <div class="background-glow glow-two"></div>
+
+
+
+
+
+    <!-- =====================================================
+
+         TOP BAR
+
+    ====================================================== -->
+
+
+
+    <header class="topbar">
+
+
+
+        <div class="brand">
+
+
+
+            <div class="brand-icon">
+
+                ×
+
+            </div>
+
+
+
+            <div>
+
+
+
+                <div class="brand-title">
+
+                    SQUARE RUSH
+
+                </div>
+
+
+
+                <div class="brand-subtitle">
+
+                    Mental Math Speed Test
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <div
+
+            id="headerStats"
+
+            class="header-stats hidden"
+
+        >
+
+
+
+            <div class="header-stat">
+
+
+
+                <span class="header-label">
+
+                    SCORE
+
+                </span>
+
+
+
+                <strong id="headerScore">
+
+                    0
+
+                </strong>
+
+
+
+            </div>
+
+
+
+            <div class="header-divider"></div>
+
+
+
+            <div class="header-stat">
+
+
+
+                <span class="header-label">
+
+                    STREAK
+
+                </span>
+
+
+
+                <strong id="headerStreak">
+
+                    0
+
+                </strong>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </header>
+
+
+
+
+
+
+
+    <!-- =====================================================
+
+         START SCREEN
+
+    ====================================================== -->
+
+
+
+    <section
+
+        id="startScreen"
+
+        class="screen start-screen active"
+
+    >
+
+
+
+        <div class="hero">
+
+
+
+            <div class="hero-badge">
+
+                SPEED CHALLENGE
+
+            </div>
+
+
+
+            <h1>
+
+                How fast can<br>
+
+                you <span>calculate?</span>
+
+            </h1>
+
+
+
+            <p>
+
+                Calculate squares as quickly as possible.
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- SETTINGS -->
+
+
+
+        <div class="settings">
+
+
+
+
+
+            <!-- NUMBER RANGE -->
+
+
+
+            <div class="setting-card">
+
+
+
+                <div class="setting-icon">
+
+                    #
+
+                </div>
+
+
+
+                <div class="setting-info">
+
+
+
+                    <span>
+
+                        NUMBER RANGE
+
+                    </span>
+
+
+
+                    <strong>
+
+                        From
+
+                    </strong>
+
+
+
+                </div>
+
+
+
+                <input
+
+                    id="minNumber"
+
+                    type="number"
+
+                    min="1"
+
+                    max="100"
+
+                    value="1"
+
+                >
+
+
+
+                <div
+
+                    class="range-separator"
+
+                    style="
+
+                        font-size: 22px;
+
+                        color: #858c9e;
+
+                        margin: 0 8px;
+
+                    "
+
+                >
+
+                    →
+
+                </div>
+
+
+
+                <div
+
+                    class="setting-info"
+
+                    style="margin-left: 5px;"
+
+                >
+
+
+
+                    <span>
+
+                        TO
+
+                    </span>
+
+
+
+                    <strong>
+
+                        Up to
+
+                    </strong>
+
+
+
+                </div>
+
+
+
+                <input
+
+                    id="maxNumber"
+
+                    type="number"
+
+                    min="1"
+
+                    max="100"
+
+                    value="31"
+
+                >
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- NUMBER OF QUESTIONS -->
+
+
+
+            <div class="setting-card">
+
+
+
+                <div class="setting-icon">
+
+                    #
+
+                </div>
+
+
+
+                <div class="setting-info">
+
+
+
+                    <span>
+
+                        QUESTIONS
+
+                    </span>
+
+
+
+                    <strong>
+
+                        Number of questions
+
+                    </strong>
+
+
+
+                </div>
+
+
+
+                <input
+
+                    id="questionCount"
+
+                    type="number"
+
+                    min="1"
+
+                    max="100"
+
+                    value="20"
+
+                >
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- TIME LIMIT -->
+
+
+
+            <div class="setting-card">
+
+
+
+                <div class="setting-icon">
+
+                    ◷
+
+                </div>
+
+
+
+                <div class="setting-info">
+
+
+
+                    <span>
+
+                        TIME LIMIT
+
+                    </span>
+
+
+
+                    <strong>
+
+                        Time per question
+
+                    </strong>
+
+
+
+                </div>
+
+
+
+                <div class="number-input">
+
+
+
+                    <input
+
+                        id="timeLimit"
+
+                        type="number"
+
+                        min="0.5"
+
+                        max="30"
+
+                        step="0.1"
+
+                        value="3"
+
+                    >
+
+
+
+                    <small>
+
+                        SEC
+
+                    </small>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- START BUTTON -->
+
+
+
+        <button
+
+            id="startButton"
+
+            class="start-button"
+
+        >
+
+
+
+            <span>
+
+                START TEST
+
+            </span>
+
+
+
+            <span class="button-arrow">
+
+                →
+
+            </span>
+
+
+
+        </button>
+
+
+
+
+
+
+
+        <!-- QUICK INFO -->
+
+
+
+        <div class="quick-info">
+
+
+
+            <div>
+
+                <span class="dot"></span>
+
+                Custom range
+
+            </div>
+
+
+
+            <div>
+
+                <span class="dot"></span>
+
+                Randomized
+
+            </div>
+
+
+
+            <div>
+
+                <span class="dot"></span>
+
+                Speed focused
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+
+    <!-- =====================================================
+
+         TEST SCREEN
+
+    ====================================================== -->
+
+
+
+    <section
+
+        id="testScreen"
+
+        class="screen test-screen"
+
+    >
+
+
+
+
+
+        <!-- QUESTION HEADER -->
+
+
+
+        <div class="test-info">
+
+
+
+            <div>
+
+
+
+                <span class="small-label">
+
+                    QUESTION
+
+                </span>
+
+
+
+                <strong id="questionNumber">
+
+                    01
+
+                </strong>
+
+
+
+                <span class="question-total">
+
+                    / 20
+
+                </span>
+
+
+
+            </div>
+
+
+
+
+
+            <div
+
+                id="accuracyLive"
+
+                class="live-accuracy"
+
+            >
+
+                0%
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- MAIN TEST CARD -->
+
+
+
+        <div class="test-card">
+
+
+
+
+
+            <!-- TIMER -->
+
+
+
+            <div class="timer">
+
+
+
+                <svg
+
+                    class="timer-svg"
+
+                    viewBox="0 0 220 220"
+
+                >
+
+
+
+                    <circle
+
+                        class="timer-track"
+
+                        cx="110"
+
+                        cy="110"
+
+                        r="94"
+
+                    ></circle>
+
+
+
+                    <circle
+
+                        id="timerCircle"
+
+                        class="timer-progress"
+
+                        cx="110"
+
+                        cy="110"
+
+                        r="94"
+
+                    ></circle>
+
+
+
+                </svg>
+
+
+
+
+
+                <div class="timer-content">
+
+
+
+                    <span id="timerText">
+
+                        3.00
+
+                    </span>
+
+
+
+                    <small>
+
+                        SEC
+
+                    </small>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- QUESTION -->
+
+
+
+            <div class="question-area">
+
+
+
+                <span class="calculate-label">
+
+                    CALCULATE
+
+                </span>
+
+
+
+                <div
+
+                    id="question"
+
+                    class="big-question"
+
+                >
+
+                    17²
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- ANSWER -->
+
+
+
+            <div class="answer-area">
+
+
+
+                <input
+
+                    id="answerInput"
+
+                    type="text"
+
+                    inputmode="numeric"
+
+                    autocomplete="off"
+
+                    placeholder="?"
+
+                >
+
+
+
+                <div class="enter-hint">
+
+
+
+                    <span>
+
+                        ENTER
+
+                    </span>
+
+
+
+                    to submit
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- STATUS -->
+
+
+
+            <div
+
+                id="status"
+
+                class="status"
+
+            >
+
+                Type your answer
+
+            </div>
+
+
+
+
+
+
+
+            <!-- NEXT -->
+
+
+
+            <button
+
+                id="nextButton"
+
+                class="next-button hidden"
+
+            >
+
+
+
+                NEXT QUESTION
+
+
+
+                <span>
+
+                    →
+
+                </span>
+
+
+
+            </button>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- BOTTOM STATS -->
+
+
+
+        <div class="bottom-stats">
+
+
+
+
+
+            <div>
+
+
+
+                <span>
+
+                    CORRECT
+
+                </span>
+
+
+
+                <strong id="correctCount">
+
+                    0
+
+                </strong>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="stat-line"></div>
+
+
+
+
+
+            <div>
+
+
+
+                <span>
+
+                    BEST TIME
+
+                </span>
+
+
+
+                <strong id="bestTime">
+
+                    --
+
+                </strong>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="stat-line"></div>
+
+
+
+
+
+            <div>
+
+
+
+                <span>
+
+                    STREAK
+
+                </span>
+
+
+
+                <strong id="currentStreak">
+
+                    0
+
+                </strong>
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+
+    <!-- =====================================================
+
+         RESULT SCREEN
+
+    ====================================================== -->
+
+
+
+    <section
+
+        id="resultScreen"
+
+        class="screen result-screen"
+
+    >
+
+
+
+        <div class="result-badge">
+
+            TEST COMPLETE
+
+        </div>
+
+
+
+
+
+        <h2>
+
+            Your performance
+
+        </h2>
+
+
+
+
+
+        <p class="result-description">
+
+            Here's how you did.
+
+        </p>
+
+
+
+
+
+
+
+        <div class="result-grid">
+
+
+
+
+
+            <!-- SCORE -->
+
+
+
+            <div class="result-card main-result">
+
+
+
+                <span>
+
+                    SCORE
+
+                </span>
+
+
+
+                <strong id="finalScore">
+
+                    0 / 20
+
+                </strong>
+
+
+
+                <div
+
+                    id="finalAccuracy"
+
+                    class="final-accuracy"
+
+                >
+
+                    0%
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <!-- AVERAGE -->
+
+
+
+            <div class="result-card">
+
+
+
+                <span>
+
+                    AVG. TIME
+
+                </span>
+
+
+
+                <strong id="finalAverage">
+
+                    0.00s
+
+                </strong>
+
+
+
+            </div>
+
+
+
+
+
+            <!-- BEST TIME -->
+
+
+
+            <div class="result-card">
+
+
+
+                <span>
+
+                    BEST TIME
+
+                </span>
+
+
+
+                <strong id="finalBest">
+
+                    0.00s
+
+                </strong>
+
+
+
+            </div>
+
+
+
+
+
+            <!-- BEST STREAK -->
+
+
+
+            <div class="result-card">
+
+
+
+                <span>
+
+                    BEST STREAK
+
+                </span>
+
+
+
+                <strong id="finalStreak">
+
+                    0
+
+                </strong>
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div
+
+            id="performanceMessage"
+
+            class="performance-message"
+
+        >
+
+            Great job!
+
+        </div>
+
+
+
+
+
+
+
+        <button
+
+            id="restartButton"
+
+            class="start-button"
+
+        >
+
+
+
+            <span>
+
+                PLAY AGAIN
+
+            </span>
+
+
+
+            <span>
+
+                ↻
+
+            </span>
+
+
+
+        </button>
+
+
+
+
+
+
+
+        <button
+
+            id="homeButton"
+
+            class="home-button"
+
+        >
+
+            Back to settings
+
+        </button>
+
+
+
+
+
+    </section>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- =========================================================
+
+     JAVASCRIPT
+
+========================================================= -->
+
+
+
+<script>
+
+
+
+
+
+    // =========================================================
+
+    // ELEMENTS
+
+    // =========================================================
+
+
+
+    const startScreen =
+
+        document.getElementById("startScreen");
+
+
+
+    const testScreen =
+
+        document.getElementById("testScreen");
+
+
+
+    const resultScreen =
+
+        document.getElementById("resultScreen");
+
+
+
+
+
+    const minNumberInput =
+
+        document.getElementById("minNumber");
+
+
+
+    const maxNumberInput =
+
+        document.getElementById("maxNumber");
+
+
+
+    const questionCountInput =
+
+        document.getElementById("questionCount");
+
+
+
+    const timeLimitInput =
+
+        document.getElementById("timeLimit");
+
+
+
+
+
+    const startButton =
+
+        document.getElementById("startButton");
+
+
+
+    const restartButton =
+
+        document.getElementById("restartButton");
+
+
+
+    const homeButton =
+
+        document.getElementById("homeButton");
+
+
+
+
+
+    const questionElement =
+
+        document.getElementById("question");
+
+
+
+    const questionNumber =
+
+        document.getElementById("questionNumber");
+
+
+
+    const answerInput =
+
+        document.getElementById("answerInput");
+
+
+
+    const enterHint = document.querySelector(".enter-hint");
+
+    const nextButton =
+
+        document.getElementById("nextButton");
+
+
+
+
+
+    const timerCircle =
+
+        document.getElementById("timerCircle");
+
+
+
+    const timerText =
+
+        document.getElementById("timerText");
+
+
+
+
+
+    const status =
+
+        document.getElementById("status");
+
+
+
+
+
+    const correctCount =
+
+        document.getElementById("correctCount");
+
+
+
+    const bestTime =
+
+        document.getElementById("bestTime");
+
+
+
+    const currentStreak =
+
+        document.getElementById("currentStreak");
+
+
+
+
+
+    const accuracyLive =
+
+        document.getElementById("accuracyLive");
+
+
+
+
+
+    const headerStats =
+
+        document.getElementById("headerStats");
+
+
+
+    const headerScore =
+
+        document.getElementById("headerScore");
+
+
+
+    const headerStreak =
+
+        document.getElementById("headerStreak");
+
+
+
+
+
+    const finalScore =
+
+        document.getElementById("finalScore");
+
+
+
+    const finalAccuracy =
+
+        document.getElementById("finalAccuracy");
+
+
+
+    const finalAverage =
+
+        document.getElementById("finalAverage");
+
+
+
+    const finalBest =
+
+        document.getElementById("finalBest");
+
+
+
+    const finalStreak =
+
+        document.getElementById("finalStreak");
+
+
+
+    const performanceMessage =
+
+        document.getElementById("performanceMessage");
+
+
+
+
+
+
+
+    // =========================================================
+
+    // TIMER CONFIG
+
+    // =========================================================
+
+
+
+    const CIRCUMFERENCE =
+
+        2 * Math.PI * 94;
+
+
+
+    timerCircle.style.strokeDasharray =
+
+        CIRCUMFERENCE;
+
+
+
+    timerCircle.style.strokeDashoffset =
+
+        0;
+
+
+
+
+
+
+
+    // =========================================================
+
+    // GAME STATE
+
+    // =========================================================
+
+
+
+    let minNumber = 1;
+
+    let maxNumber = 31;
+
+
+
+    let questionCount = 20;
+
+    let timeLimit = 3;
+
+
+
+    let currentQuestion = 0;
+
+
+
+    let score = 0;
+
+
+
+    let currentStreakValue = 0;
+
+    let bestStreakValue = 0;
+
+
+
+    let currentNumber = 0;
+
+    let correctAnswer = 0;
+
+
+
+    let startTime = 0;
+
+
+
+    let timerAnimation = null;
+
+
+
+    let locked = false;
+
+
+
+    // Wait for Enter after a wrong answer or timeout.
+    let awaitingNext = false;
+
+    let correctTimes = [];
+
+
+
+    let questionPool = [];
+
+
+
+
+
+
+
+    // =========================================================
+
+    // SCREEN SWITCH
+
+    // =========================================================
+
+
+
+    function showScreen(screen) {
+
+
+
+        startScreen.classList.remove("active");
+
+        testScreen.classList.remove("active");
+
+        resultScreen.classList.remove("active");
+
+
+
+        screen.classList.add("active");
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // RANDOM SHUFFLE
+
+    // =========================================================
+
+
+
+    function shuffle(array) {
+
+
+
+        for (
+
+            let i = array.length - 1;
+
+            i > 0;
+
+            i--
+
+        ) {
+
+
+
+            const j =
+
+                Math.floor(
+
+                    Math.random() * (i + 1)
+
+                );
+
+
+
+            [
+
+                array[i],
+
+                array[j]
+
+            ] = [
+
+                array[j],
+
+                array[i]
+
+            ];
+
+
+
+        }
+
+
+
+        return array;
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // CREATE QUESTION POOL
+
+    // =========================================================
+
+
+
+    function createQuestionPool() {
+
+
+
+        const numbers = [];
+
+
+
+
+
+        for (
+
+            let i = minNumber;
+
+            i <= maxNumber;
+
+            i++
+
+        ) {
+
+
+
+            numbers.push(i);
+
+
+
+        }
+
+
+
+
+
+        questionPool = [];
+
+
+
+
+
+        /*
+
+            هر دور تمام اعداد بازه یک بار استفاده می‌شوند.
+
+            سپس اگر سؤال بیشتری لازم باشد،
+
+            یک دور تصادفی جدید ساخته می‌شود.
+
+        */
+
+
+
+        while (
+
+            questionPool.length < questionCount
+
+        ) {
+
+
+
+            const cycle =
+
+                shuffle([...numbers]);
+
+
+
+            questionPool.push(...cycle);
+
+
+
+        }
+
+
+
+
+
+        questionPool =
+
+            questionPool.slice(
+
+                0,
+
+                questionCount
+
+            );
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // START TEST
+
+    // =========================================================
+
+
+
+    startButton.addEventListener(
+
+        "click",
+
+        startTest
+
+    );
+
+
+
+
+
+    function startTest() {
+
+
+
+        minNumber =
+
+            Number(minNumberInput.value);
+
+
+
+        maxNumber =
+
+            Number(maxNumberInput.value);
+
+
+
+        questionCount =
+
+            Number(questionCountInput.value);
+
+
+
+        timeLimit =
+
+            Number(timeLimitInput.value);
+
+
+
+
+
+
+
+        // -------------------------
+
+        // VALIDATE RANGE
+
+        // -------------------------
+
+
+
+        if (
+
+            !Number.isFinite(minNumber) ||
+
+            minNumber < 1
+
+        ) {
+
+
+
+            minNumber = 1;
+
+            minNumberInput.value = 1;
+
+
+
+        }
+
+
+
+
+
+        if (
+
+            !Number.isFinite(maxNumber) ||
+
+            maxNumber < 1
+
+        ) {
+
+
+
+            maxNumber = 31;
+
+            maxNumberInput.value = 31;
+
+
+
+        }
+
+
+
+
+
+        if (maxNumber < minNumber) {
+
+
+
+            alert(
+
+                "The ending number must be greater than or equal to the starting number."
+
+            );
+
+
+
+            return;
+
+
+
+        }
+
+
+
+
+
+
+
+        // -------------------------
+
+        // VALIDATE QUESTION COUNT
+
+        // -------------------------
+
+
+
+        if (
+
+            !Number.isFinite(questionCount) ||
+
+            questionCount < 1
+
+        ) {
+
+
+
+            questionCount = 20;
+
+
+
+        }
+
+
+
+        questionCount =
+
+            Math.min(
+
+                Math.floor(questionCount),
+
+                100
+
+            );
+
+
+
+        questionCountInput.value =
+
+            questionCount;
+
+
+
+
+
+
+
+        // -------------------------
+
+        // VALIDATE TIME
+
+        // -------------------------
+
+
+
+        if (
+
+            !Number.isFinite(timeLimit) ||
+
+            timeLimit <= 0
+
+        ) {
+
+
+
+            timeLimit = 3;
+
+
+
+        }
+
+
+
+        timeLimit =
+
+            Math.min(
+
+                timeLimit,
+
+                30
+
+            );
+
+
+
+        timeLimitInput.value =
+
+            timeLimit;
+
+
+
+
+
+
+
+        // -------------------------
+
+        // RESET GAME
+
+        // -------------------------
+
+
+
+        currentQuestion = 0;
+
+
+
+        score = 0;
+
+
+
+        currentStreakValue = 0;
+
+
+
+        bestStreakValue = 0;
+
+
+
+        correctTimes = [];
+
+        locked = false;
+        awaitingNext = false;
+
+
+
+
+
+
+
+        // -------------------------
+
+        // CREATE QUESTIONS
+
+        // -------------------------
+
+
+
+        createQuestionPool();
+
+
+
+
+
+
+
+        // -------------------------
+
+        // SHOW TEST
+
+        // -------------------------
+
+
+
+        headerStats.classList.remove(
+
+            "hidden"
+
+        );
+
+
+
+        updateStats();
+
+
+
+        showScreen(testScreen);
+
+
+
+        nextQuestion();
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // NEXT QUESTION
+
+    // =========================================================
+
+
+
+    function nextQuestion() {
+
+
+
+        if (
+
+            currentQuestion >= questionCount
+
+        ) {
+
+
+
+            finishTest();
+
+
+
+            return;
+
+
+
+        }
+
+
+
+
+
+        locked = false;
+        awaitingNext = false;
+
+        nextButton.classList.add("hidden");
+
+        answerInput.disabled = false;
+        answerInput.value = "";
+        enterHint.innerHTML = "<span>ENTER</span> to submit";
+
+
+
+
+
+        status.textContent =
+
+            "Type your answer";
+
+
+
+        status.className =
+
+            "status";
+
+
+
+
+
+        currentNumber =
+
+            questionPool[currentQuestion];
+
+
+
+
+
+        correctAnswer =
+
+            currentNumber * currentNumber;
+
+
+
+
+
+        currentQuestion++;
+
+
+
+
+
+
+
+        // QUESTION NUMBER
+
+
+
+        questionNumber.textContent =
+
+            String(currentQuestion)
+
+                .padStart(2, "0");
+
+
+
+
+
+
+
+        document
+
+            .querySelector(".question-total")
+
+            .textContent =
+
+            `/ ${questionCount}`;
+
+
+
+
+
+
+
+        // QUESTION TEXT
+
+
+
+        questionElement.textContent =
+
+            `${currentNumber}²`;
+
+
+
+
+
+
+
+        // ANIMATION
+
+
+
+        questionElement.classList.remove(
+
+            "question-pop"
+
+        );
+
+
+
+        void questionElement.offsetWidth;
+
+
+
+        questionElement.classList.add(
+
+            "question-pop"
+
+        );
+
+
+
+
+
+
+
+        // TIMER
+
+
+
+        resetTimerVisual();
+
+
+
+
+
+
+
+        // FOCUS
+
+
+
+        answerInput.focus();
+
+
+
+
+
+
+
+        // START
+
+
+
+        startTimer();
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // TIMER
+
+    // =========================================================
+
+
+
+    function resetTimerVisual() {
+
+
+
+        timerCircle.style.strokeDashoffset =
+
+            0;
+
+
+
+        timerText.textContent =
+
+            timeLimit.toFixed(2);
+
+
+
+        timerCircle.classList.remove(
+
+            "danger"
+
+        );
+
+
+
+    }
+
+
+
+
+
+
+
+    function startTimer() {
+
+
+
+        cancelAnimationFrame(
+
+            timerAnimation
+
+        );
+
+
+
+
+
+        startTime =
+
+            performance.now();
+
+
+
+
+
+        timerAnimation =
+
+            requestAnimationFrame(
+
+                updateTimer
+
+            );
+
+
+
+    }
+
+
+
+
+
+
+
+    function updateTimer(now) {
+
+
+
+        if (locked) {
+
+            return;
+
+        }
+
+
+
+
+
+        const elapsed =
+
+            (now - startTime) / 1000;
+
+
+
+
+
+        const remaining =
+
+            timeLimit - elapsed;
+
+
+
+
+
+        const ratio =
+
+            Math.max(
+
+                0,
+
+                remaining / timeLimit
+
+            );
+
+
+
+
+
+        const offset =
+
+            CIRCUMFERENCE *
+
+            (1 - ratio);
+
+
+
+
+
+        timerCircle.style.strokeDashoffset =
+
+            offset;
+
+
+
+
+
+        timerText.textContent =
+
+            Math.max(
+
+                0,
+
+                remaining
+
+            ).toFixed(2);
+
+
+
+
+
+
+
+        if (ratio < 0.25) {
+
+
+
+            timerCircle.classList.add(
+
+                "danger"
+
+            );
+
+
+
+        } else {
+
+
+
+            timerCircle.classList.remove(
+
+                "danger"
+
+            );
+
+
+
+        }
+
+
+
+
+
+
+
+        if (remaining <= 0) {
+
+
+
+            timeUp();
+
+
+
+            return;
+
+
+
+        }
+
+
+
+
+
+        timerAnimation =
+
+            requestAnimationFrame(
+
+                updateTimer
+
+            );
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // ANSWER INPUT
+
+    // =========================================================
+
+
+
+    // Enter is handled by the document-level keyboard listener below.
+
+
+
+
+
+
+
+    // =========================================================
+
+    // CHECK ANSWER
+
+    // =========================================================
+
+
+
+    function checkAnswer() {
+
+
+
+        if (locked) {
+
+            return;
+
+        }
+
+
+
+
+
+        const raw =
+
+            answerInput.value.trim();
+
+
+
+
+
+        if (!raw) {
+
+            return;
+
+        }
+
+
+
+
+
+        const userAnswer =
+
+            Number(raw);
+
+
+
+
+
+        if (
+
+            !Number.isInteger(userAnswer)
+
+        ) {
+
+
+
+            return;
+
+
+
+        }
+
+
+
+
+
+        const elapsed =
+
+            (
+
+                performance.now() -
+
+                startTime
+
+            ) / 1000;
+
+
+
+
+
+        locked = true;
+
+
+
+
+
+        cancelAnimationFrame(
+
+            timerAnimation
+
+        );
+
+
+
+
+
+        if (
+
+            userAnswer === correctAnswer
+
+        ) {
+
+
+
+            handleCorrect(elapsed);
+
+
+
+        } else {
+
+
+
+            handleWrong();
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // CORRECT
+
+    // =========================================================
+
+
+
+    function handleCorrect(elapsed) {
+
+
+
+        score++;
+
+
+
+        currentStreakValue++;
+
+
+
+
+
+        if (
+
+            currentStreakValue >
+
+            bestStreakValue
+
+        ) {
+
+
+
+            bestStreakValue =
+
+                currentStreakValue;
+
+
+
+        }
+
+
+
+
+
+        correctTimes.push(
+
+            elapsed
+
+        );
+
+
+
+
+
+        answerInput.disabled = true;
+
+
+
+
+
+        status.innerHTML =
+
+            `✓ Correct <span>• ${elapsed.toFixed(2)} sec</span>`;
+
+
+
+        status.className =
+
+            "status correct";
+
+
+
+
+
+        updateStats();
+
+
+
+
+
+        setTimeout(
+
+            nextQuestion,
+
+            420
+
+        );
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // WRONG
+
+    // =========================================================
+
+
+
+    function handleWrong() {
+
+        currentStreakValue = 0;
+        awaitingNext = true;
+
+        answerInput.disabled = true;
+
+        status.innerHTML =
+            `✕ Wrong<br><span>Correct answer: ${correctAnswer}</span>`;
+
+        status.className = "status wrong";
+        enterHint.innerHTML = "<span>ENTER</span> to continue";
+        nextButton.classList.remove("hidden");
+
+        updateStats();
+
+    }
+
+
+
+
+
+
+
+
+
+    // =========================================================
+
+    // TIME UP
+
+    // =========================================================
+
+
+
+    function timeUp() {
+
+
+
+        if (locked) {
+
+            return;
+
+        }
+
+
+
+
+
+        locked = true;
+        awaitingNext = true;
+        currentStreakValue = 0;
+
+
+
+
+
+        answerInput.disabled = true;
+
+
+
+
+
+        status.innerHTML =
+
+            `⏱ Time's up<br>
+
+             <span>Correct answer: ${correctAnswer}</span>`;
+
+
+
+
+
+        status.className =
+
+            "status timeout";
+
+
+
+
+
+        enterHint.innerHTML = "<span>ENTER</span> to continue";
+
+        nextButton.classList.remove(
+
+            "hidden"
+
+        );
+
+
+
+
+
+        updateStats();
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // NEXT BUTTON
+
+    // =========================================================
+
+
+
+    nextButton.addEventListener(
+        "click",
+        () => {
+            if (awaitingNext) {
+                nextQuestion();
+            }
+        }
+    );
+
+
+
+
+
+
+
+    // =========================================================
+
+    // LIVE STATS
+
+    // =========================================================
+
+
+
+    function updateStats() {
+
+
+
+        correctCount.textContent =
+
+            score;
+
+
+
+
+
+        headerScore.textContent =
+
+            score;
+
+
+
+
+
+        currentStreak.textContent =
+
+            currentStreakValue;
+
+
+
+
+
+        headerStreak.textContent =
+
+            currentStreakValue;
+
+
+
+
+
+
+
+        // LIVE ACCURACY
+
+
+
+        const answered =
+
+            currentQuestion;
+
+
+
+        const accuracy =
+
+            answered > 0
+
+                ? (score / answered) * 100
+
+                : 0;
+
+
+
+
+
+        accuracyLive.textContent =
+
+            `${accuracy.toFixed(0)}%`;
+
+
+
+
+
+
+
+        // BEST TIME
+
+
+
+        if (
+
+            correctTimes.length > 0
+
+        ) {
+
+
+
+            const best =
+
+                Math.min(
+
+                    ...correctTimes
+
+                );
+
+
+
+
+
+            bestTime.textContent =
+
+                `${best.toFixed(2)}s`;
+
+
+
+        } else {
+
+
+
+            bestTime.textContent =
+
+                "--";
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // FINISH TEST
+
+    // =========================================================
+
+
+
+    function finishTest() {
+
+
+
+        cancelAnimationFrame(
+
+            timerAnimation
+
+        );
+
+
+
+
+
+        headerStats.classList.add(
+
+            "hidden"
+
+        );
+
+
+
+
+
+        showScreen(
+
+            resultScreen
+
+        );
+
+
+
+
+
+
+
+        // ACCURACY
+
+
+
+        const accuracy =
+
+            questionCount > 0
+
+                ? (score / questionCount) * 100
+
+                : 0;
+
+
+
+
+
+
+
+        // AVERAGE TIME
+
+
+
+        let average = 0;
+
+
+
+
+
+        if (
+
+            correctTimes.length > 0
+
+        ) {
+
+
+
+            average =
+
+                correctTimes.reduce(
+
+                    (a, b) => a + b,
+
+                    0
+
+                ) /
+
+                correctTimes.length;
+
+
+
+        }
+
+
+
+
+
+
+
+        // BEST TIME
+
+
+
+        let best = 0;
+
+
+
+
+
+        if (
+
+            correctTimes.length > 0
+
+        ) {
+
+
+
+            best =
+
+                Math.min(
+
+                    ...correctTimes
+
+                );
+
+
+
+        }
+
+
+
+
+
+
+
+        // RESULT VALUES
+
+
+
+        finalScore.textContent =
+
+            `${score} / ${questionCount}`;
+
+
+
+
+
+        finalAccuracy.textContent =
+
+            `${accuracy.toFixed(1)}%`;
+
+
+
+
+
+        finalAverage.textContent =
+
+            `${average.toFixed(2)}s`;
+
+
+
+
+
+        finalBest.textContent =
+
+            correctTimes.length
+
+                ? `${best.toFixed(2)}s`
+
+                : "--";
+
+
+
+
+
+        finalStreak.textContent =
+
+            bestStreakValue;
+
+
+
+
+
+
+
+        // PERFORMANCE MESSAGE
+
+
+
+        if (accuracy === 100) {
+
+
+
+            performanceMessage.textContent =
+
+                "🔥 Perfect run. Absolutely flawless.";
+
+
+
+        }
+
+
+
+        else if (accuracy >= 90) {
+
+
+
+            performanceMessage.textContent =
+
+                "⚡ Excellent. Your mental math is seriously fast.";
+
+
+
+        }
+
+
+
+        else if (accuracy >= 75) {
+
+
+
+            performanceMessage.textContent =
+
+                "💪 Very good. Keep pushing your speed.";
+
+
+
+        }
+
+
+
+        else if (accuracy >= 50) {
+
+
+
+            performanceMessage.textContent =
+
+                "🎯 Good start. Accuracy first, then speed.";
+
+
+
+        }
+
+
+
+        else {
+
+
+
+            performanceMessage.textContent =
+
+                "🚀 Keep practicing. You’ll get faster.";
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+    // =========================================================
+
+    // RESTART
+
+    // =========================================================
+
+
+
+    restartButton.addEventListener(
+
+        "click",
+
+        () => {
+
+
+
+            showScreen(
+
+                startScreen
+
+            );
+
+
+
+        }
+
+    );
+
+
+
+
+
+
+
+    // =========================================================
+
+    // HOME
+
+    // =========================================================
+
+
+
+    homeButton.addEventListener(
+
+        "click",
+
+        () => {
+
+
+
+            cancelAnimationFrame(
+
+                timerAnimation
+
+            );
+
+
+
+            showScreen(
+
+                startScreen
+
+            );
+
+
+
+        }
+
+    );
+
+
+
+
+
+
+
+    // =========================================================
+
+    // KEYBOARD SHORTCUT
+
+    // =========================================================
+
+
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Enter" &&
+                testScreen.classList.contains("active")
+            ) {
+                // After a wrong answer or timeout, Enter continues to the next question.
+                if (awaitingNext) {
+                    event.preventDefault();
+                    nextQuestion();
+                    return;
+                }
+
+                // During an active question, Enter submits the answer input.
+                if (
+                    document.activeElement === answerInput &&
+                    !answerInput.disabled
+                ) {
+                    event.preventDefault();
+                    checkAnswer();
+                    return;
+                }
+            }
+
+            if (event.key === "Escape") {
+                if (testScreen.classList.contains("active")) {
+                    cancelAnimationFrame(timerAnimation);
+                    awaitingNext = false;
+                    showScreen(startScreen);
+                }
+            }
+
+        }
+    );
+
+
+</script>
+
+
+
+</body>
+
+</html>
